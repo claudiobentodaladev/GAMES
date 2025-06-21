@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #020235;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    padding-top: 40px;
+}
+
+header{
+    height: 20%;
+}
+header > section{
+    flex-basis: 300px;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+header > section > span{
+    margin: 0 10px;
+    color: white;
+}
+header > section > span#vs{
+    font-weight: bolder;
+    font-size: 10px;
+    transform: translate(0,25%);
+}
+header > section > span#oplayer{
+    color: red;
+}
+header > section > span#oplayer > div{
+    text-shadow: 0px 0px 20px 0px red;
+}
+header > section > span#xplayer{
+    color: blue;
+}
+header > section > span > div{
+    text-transform: uppercase;
+    font-size: 4em;
+}
+header > section > span > p{
+    width: 100px;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+header > div#winner{
+    text-align: center;
+    text-decoration: line-through;
+    font-size: 35px;
+}
+
+main{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    
+}
+main > section{
+    display: flex;
+    max-width: 300px;
+    border-radius: 10px;
+    background-color: red;
+    background-color: #80808070;
+    box-shadow: 0px 0px 20px 0px darkblue;
+}
+main > section > section > div{
+    text-transform: uppercase;
+    height: 100px;
+    width: 100px;
+    font-size: 5em;
+    text-align: center;
+    border: 1px solid black;
+}
