@@ -1,3 +1,8 @@
+const elements = {
+    resulted_show: window.document.querySelector('div#winner'),
+    resulted_o: window.document.querySelector('span#o_win'),
+    resulted_x: window.document.querySelector('span#x_win')
+}
 const box = [
     window.document.querySelector('div#b1'),
     window.document.querySelector('div#b2'),
@@ -33,6 +38,8 @@ function x_o_logic(index,bool) {
         box[index].style.cursor = 'not-allowed'
     }
 }
+
+// EIGTH TO WIN THIS GAME
 
 var state = true // O(true) | X(false)
 
