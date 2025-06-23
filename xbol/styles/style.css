@@ -49,9 +49,20 @@ header > section > span > p{
     text-transform: capitalize;
 }
 header > div#winner{
-    font-size: 35px;
+    font-size: 50px;
     text-align: center;
     text-decoration: line-through;
+    animation: linear bam .8s;
+    scale: 80%;
+}
+@keyframes bam {
+    0%{
+        scale: 30%;
+    } 80% {
+        scale: 100%;
+    } 100% {
+        scale: 80%;
+    }
 }
 
 main{
