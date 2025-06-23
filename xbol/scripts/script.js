@@ -15,8 +15,8 @@ const box = [
     window.document.querySelector('div#b9')
 ]
 var box_ckecker = [undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined]
-function x_o(player) {
-    switch (player) {
+function x_o(bool) {
+    switch (bool) {
         case true:
             return 'o'
             break;
@@ -25,8 +25,8 @@ function x_o(player) {
             break; 
     }
 }
-function color_x_o(player) {
-    switch (player) {
+function color_x_o(bool) {
+    switch (bool) {
         case true:
             return 'red'
             break;
@@ -71,6 +71,18 @@ function win_x() {
 
 
 var state = true // O(true) | X(false)
+
+//this way for while
+switch (state) {
+    case true:
+        elements.resulted_show.innerText = 'ooo'
+        elements.resulted_show.style.color = 'red'
+        break;
+    case false:
+        elements.resulted_show.innerText = 'xxx'
+        elements.resulted_show.style.color = 'blue'
+        break;
+}
 
 function box_alert(boxnumber) {
     switch(boxnumber){
