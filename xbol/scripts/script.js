@@ -16,17 +16,23 @@ const box = [
 ]
 var box_ckecker = [undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined]
 function x_o(player) {
-    if (player) {
-        return 'o'
-    } else {
-        return 'x'
+    switch (player) {
+        case true:
+            return 'o'
+            break;
+        case false:
+            return 'x'
+            break; 
     }
 }
 function color_x_o(player) {
-    if (player) {
-        return 'red'
-    } else {
-        return 'blue'
+    switch (player) {
+        case true:
+            return 'red'
+            break;
+        case false:
+            return 'blue'
+            break; 
     }
 }
 function x_o_logic(index,bool) {
