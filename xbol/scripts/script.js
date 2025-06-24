@@ -64,7 +64,7 @@ function again() {
     for (let index = 0; index < box.length; index++) {
         setTimeout(() => {
             player_control(state)
-        }, 880);
+        }, 840);
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
         box[index].style.cursor = ''
@@ -75,6 +75,8 @@ function again() {
     }
 }
 var status_game_o = 0, status_game_x = 0
+elements.resulted_o.innerText = String(status_game_x)
+elements.resulted_x.innerText = String(status_game_o)
 function winner(bool,player) {
     
     function who() {
@@ -130,6 +132,14 @@ function no_winner() {
     if (check == 5) {
         again() 
     } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
+        again() 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
+        again() 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == true && box_ckecker[8] == false){
+        again() 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
+        again() 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == false && box_ckecker[5] == true && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
         again() 
     }
 }
