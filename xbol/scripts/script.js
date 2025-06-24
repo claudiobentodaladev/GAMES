@@ -60,7 +60,6 @@ function player_control(bool) {
     }
 }
 function again() {
-    // reload the page function
     for (let index = 0; index < box.length; index++) {
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
@@ -70,46 +69,58 @@ function again() {
         elements.resulted_show.style.textDecoration = 'none'
     }
 }
+var status_game_o = 0, status_game_x = 0
 function winner(bool,player) {
-    if (box_ckecker[0] == bool && box_ckecker[1] == bool && box_ckecker[2] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[3] == bool && box_ckecker[4] == bool && box_ckecker[5] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[6] == bool && box_ckecker[7] == bool && box_ckecker[8] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[0] == bool && box_ckecker[3] == bool && box_ckecker[6] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[1] == bool && box_ckecker[4] == bool && box_ckecker[7] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[2] == bool && box_ckecker[5] == bool && box_ckecker[8] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[0] == bool && box_ckecker[4] == bool && box_ckecker[8] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
-    } else if (box_ckecker[2] == bool && box_ckecker[4] == bool && box_ckecker[6] == bool) {
-        alert(`won ${player}`)
-        again()
-        // reload the page function
+    
+    function who() {
+        switch (bool) {
+            case true:
+                status_game_o += 1
+                break;
+            case false:
+                status_game_x += 1
+                break;
+        }      
     }
+    function won_game() {
+        setTimeout(() => {
+            again()
+            who()
+            status_game()
+        }, 500);
+    }
+    if (box_ckecker[0] == bool && box_ckecker[1] == bool && box_ckecker[2] == bool) {
+        won_game()
+    } else if (box_ckecker[3] == bool && box_ckecker[4] == bool && box_ckecker[5] == bool) {
+        won_game()
+    } else if (box_ckecker[6] == bool && box_ckecker[7] == bool && box_ckecker[8] == bool) {
+        won_game()
+    } else if (box_ckecker[0] == bool && box_ckecker[3] == bool && box_ckecker[6] == bool) {
+        won_game()
+    } else if (box_ckecker[1] == bool && box_ckecker[4] == bool && box_ckecker[7] == bool) {
+        won_game()
+    } else if (box_ckecker[2] == bool && box_ckecker[5] == bool && box_ckecker[8] == bool) {
+        won_game()
+    } else if (box_ckecker[0] == bool && box_ckecker[4] == bool && box_ckecker[8] == bool) {
+        won_game()
+    } else if (box_ckecker[2] == bool && box_ckecker[4] == bool && box_ckecker[6] == bool) {
+        won_game()
+    }
+}
+function status_game() {
+    elements.resulted_o.innerText = status_game_o
+    elements.resulted_x.innerText = status_game_x
+}
+function win_o() {
+    winner(true,'o')
+}
+function win_x() {
+    winner(false,'x')
 }
 function no_winner() {
     let check = 0
     for (let index = 0; index < box_ckecker.length; index++) {
         box_ckecker[index] == !undefined ? check += 1 : undefined
-        console.log(`hello ${check}`)
     }
     if (check == 5) {
         alert('full none won!')
@@ -132,14 +143,12 @@ function status_player(bool) {
             break;
     }
 }
-function win_o() {
-    winner(true,'o')
-}
-function win_x() {
-    winner(false,'x')
-}
 
 var state = true // O(true) | X(false)
+
+setTimeout(() => {
+    player_control(state)
+}, 880);
 
 function box_alert(boxnumber) {
     switch(boxnumber){
