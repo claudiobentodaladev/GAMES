@@ -62,6 +62,9 @@ function player_control(bool) {
 let checker = []
 function again() {
     for (let index = 0; index < box.length; index++) {
+        setTimeout(() => {
+            player_control(state)
+        }, 880);
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
         box[index].style.cursor = ''
