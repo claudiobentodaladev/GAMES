@@ -59,6 +59,7 @@ function player_control(bool) {
             break;
     }
 }
+let checker = []
 function again() {
     for (let index = 0; index < box.length; index++) {
         box_ckecker[index] = undefined
@@ -67,6 +68,7 @@ function again() {
         elements.resulted_show.innerText = 'again'
         elements.resulted_show.style.color = 'white'
         elements.resulted_show.style.textDecoration = 'none'
+        checker[index] = undefined
     }
 }
 var status_game_o = 0, status_game_x = 0
@@ -87,7 +89,7 @@ function winner(bool,player) {
             again()
             who()
             status_game()
-        }, 500);
+        }, 360);
     }
     if (box_ckecker[0] == bool && box_ckecker[1] == bool && box_ckecker[2] == bool) {
         won_game()
@@ -151,32 +153,44 @@ setTimeout(() => {
 }, 880);
 
 function box_alert(boxnumber) {
+    for (let index = 0; index < checker.length; index++) {
+        boxnumber == checker[index] ? state = !state : undefined
+    }
     switch(boxnumber){
         case 1 : 
+            checker[0] = boxnumber
             x_o_logic(0,state)
             break
         case 2 : 
+            checker[1] = boxnumber
             x_o_logic(1,state)
             break
         case 3 :
+            checker[2] = boxnumber
             x_o_logic(2,state) 
             break
         case 4 :
+            checker[3] = boxnumber
             x_o_logic(3,state) 
             break
         case 5 :
+            checker[4] = boxnumber
             x_o_logic(4,state) 
             break
         case 6 :
+            checker[5] = boxnumber
             x_o_logic(5,state) 
             break
         case 7 :
+            checker[6] = boxnumber
             x_o_logic(6,state) 
             break
         case 8 :
+            checker[7] = boxnumber
             x_o_logic(7,state) 
             break
         case 9 :
+            checker[8] = boxnumber
             x_o_logic(8,state) 
             break
     }
@@ -186,4 +200,3 @@ function box_alert(boxnumber) {
     win_x()
     no_winner()
 }
-console.log(box_ckecker)
