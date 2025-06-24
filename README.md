@@ -50,7 +50,7 @@ Tic Tac Toe is a two-player game where one is "X" and the other is "O". Players 
 
 ## 📸 Game Screenshot
 
-![Tic Tac Toe](/*image*/)
+![Tic Tac Toe](/xbol/image/screenshot.png)
 
 ---
 
