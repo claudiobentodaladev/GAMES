@@ -43,23 +43,93 @@ function x_o_logic(index,bool) {
         box_ckecker[index] = bool
     }
 }
-function winner(player,n) {
-    if (box_ckecker[0] == player && box_ckecker[1] == player && box_ckecker[2] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[3] == player && box_ckecker[4] == player && box_ckecker[5] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[6] == player && box_ckecker[7] == player && box_ckecker[8] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[0] == player && box_ckecker[3] == player && box_ckecker[6] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[1] == player && box_ckecker[4] == player && box_ckecker[7] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[2] == player && box_ckecker[5] == player && box_ckecker[8] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[0] == player && box_ckecker[4] == player && box_ckecker[8] == player) {
-        alert(`win ${n}`)
-    } else if (box_ckecker[2] == player && box_ckecker[4] == player && box_ckecker[6] == player) {
-        alert(`win ${n}`)
+function resulted_show(player,color) {
+    elements.resulted_show.style.textDecoration = 'line-through'
+    elements.resulted_show.innerText = player
+    elements.resulted_show.style.color = color
+}
+function player_control(bool) {
+    let triple = `${x_o(bool)}${x_o(bool)}${x_o(bool)}`
+    switch (bool) {
+        case true:
+            resulted_show(triple,color_x_o(bool))
+            break;
+        case false:
+            resulted_show(triple,color_x_o(bool))
+            break;
+    }
+}
+function again() {
+    // reload the page function
+    for (let index = 0; index < box.length; index++) {
+        box_ckecker[index] = undefined
+        box[index].innerHTML = ''
+        box[index].style.cursor = ''
+        elements.resulted_show.innerText = 'again'
+        elements.resulted_show.style.color = 'white'
+        elements.resulted_show.style.textDecoration = 'none'
+    }
+}
+function winner(bool,player) {
+    if (box_ckecker[0] == bool && box_ckecker[1] == bool && box_ckecker[2] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[3] == bool && box_ckecker[4] == bool && box_ckecker[5] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[6] == bool && box_ckecker[7] == bool && box_ckecker[8] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[0] == bool && box_ckecker[3] == bool && box_ckecker[6] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[1] == bool && box_ckecker[4] == bool && box_ckecker[7] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[2] == bool && box_ckecker[5] == bool && box_ckecker[8] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[0] == bool && box_ckecker[4] == bool && box_ckecker[8] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    } else if (box_ckecker[2] == bool && box_ckecker[4] == bool && box_ckecker[6] == bool) {
+        alert(`won ${player}`)
+        again()
+        // reload the page function
+    }
+}
+function no_winner() {
+    let check = 0
+    for (let index = 0; index < box_ckecker.length; index++) {
+        box_ckecker[index] == !undefined ? check += 1 : undefined
+        console.log(`hello ${check}`)
+    }
+    if (check == 5) {
+        alert('full none won!')
+        again() 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
+        alert('full none won!')
+        again() 
+    }
+}
+function status_player(bool) {
+    let status_o = 0
+    let status_x = 0
+    switch (bool) {
+        case 'o':
+            status_o += 1
+            elements.resulted_o.innerText = status_o
+        case 'x':
+            status_x += 1
+            elements.resulted_x.innerText = status_x
+            break;
     }
 }
 function win_o() {
@@ -69,20 +139,7 @@ function win_x() {
     winner(false,'x')
 }
 
-
 var state = true // O(true) | X(false)
-
-//this way for while
-switch (state) {
-    case true:
-        elements.resulted_show.innerText = 'ooo'
-        elements.resulted_show.style.color = 'red'
-        break;
-    case false:
-        elements.resulted_show.innerText = 'xxx'
-        elements.resulted_show.style.color = 'blue'
-        break;
-}
 
 function box_alert(boxnumber) {
     switch(boxnumber){
@@ -115,7 +172,9 @@ function box_alert(boxnumber) {
             break
     }
     state = !state
+    player_control(state)
     win_o()
     win_x()
+    no_winner()
 }
 console.log(box_ckecker)
