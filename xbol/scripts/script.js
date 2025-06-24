@@ -125,10 +125,8 @@ function no_winner() {
         box_ckecker[index] == !undefined ? check += 1 : undefined
     }
     if (check == 5) {
-        alert('full none won!')
         again() 
     } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
-        alert('full none won!')
         again() 
     }
 }
