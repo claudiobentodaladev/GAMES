@@ -1,5 +1,7 @@
 const elements = {
     resulted_show: window.document.querySelector('div#winner'),
+    name_player_o: window.document.querySelector('span#player_o'),
+    name_player_x: window.document.querySelector('span#player_x'),
     resulted_o: window.document.querySelector('span#o_win'),
     resulted_x: window.document.querySelector('span#x_win')
 }
@@ -68,7 +70,7 @@ function again() {
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
         box[index].style.cursor = ''
-        elements.resulted_show.innerText = 'again'
+        elements.resulted_show.innerText = 'again!'
         elements.resulted_show.style.color = 'white'
         elements.resulted_show.style.textDecoration = 'none'
         checker[index] = undefined
