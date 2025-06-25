@@ -13,6 +13,87 @@ body{
     background-color: #020235;
 }
 
+section#pop-up{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 20%;
+    height: 100%;
+    background-color: #00000098;
+}
+section#pop-up > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-43%);
+    width: 360px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, red,#0000c4);
+}
+section#pop-up h2{
+    display: inline;
+    margin: auto;
+    color: white;
+    text-transform: capitalize;
+}
+section#pop-up h2#cursor{
+    animation: cursor infinite 990ms;
+}
+@keyframes cursor {
+    0%{
+        color: transparent;
+    } 40%{
+        color: whitesmoke;
+    } 100%{
+        color: transparent;
+    }
+}
+section#pop-up > div > div{
+    margin-bottom: 10px;
+    text-align: center;
+}
+section#pop-up > div > div > label{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0px 1px 5px black;
+}
+section#pop-up > div > div > label#o_name{
+    color: red;
+}
+section#pop-up > div > div > label#x_name{
+    color: blue;
+}
+section#pop-up > div > div > input{
+    height: 30px;
+    width: 190px;
+}
+section#pop-up > div > div > input#iplayer_o:focus-within{
+    border: 1px solid red;
+    outline: 1px solid red;
+}
+section#pop-up > div > div > input#iplayer_x:focus-within{
+    border: 1px solid blue;
+    outline: 1px solid blue;
+}
+section#pop-up > div > input{
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin-top: 500px;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+section#pop-up > div > input:hover{
+    scale: 95%;
+}
+
 header{
     height: 20%;
 }
@@ -71,8 +152,7 @@ main{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 80%;
-    
+    height: 60%;
 }
 main > section{
     display: flex;
