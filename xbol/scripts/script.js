@@ -3,7 +3,14 @@ const elements = {
     name_player_o: window.document.querySelector('span#player_o'),
     name_player_x: window.document.querySelector('span#player_x'),
     resulted_o: window.document.querySelector('span#o_win'),
-    resulted_x: window.document.querySelector('span#x_win')
+    resulted_x: window.document.querySelector('span#x_win'),
+    pop_up: window.document.querySelector('section#pop-up'),
+    warn: window.document.querySelector('p#warn')
+}
+const form = {
+    name_player_o: window.document.querySelector('input#iplayer_o'),
+    name_player_x: window.document.querySelector('input#iplayer_x'),
+    start: window.document.querySelector('input#iplay')
 }
 const box = [
     window.document.querySelector('div#b1'),
@@ -17,6 +24,16 @@ const box = [
     window.document.querySelector('div#b9')
 ]
 var box_ckecker = [undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined]
+function name_player_form() {
+    if (!form.name_player_o.value == '' && !form.name_player_x.value == '') {
+        elements.name_player_o.innerText = form.name_player_o.value
+        elements.name_player_x.innerText = form.name_player_x.value
+        elements.pop_up.style.display = 'none'
+    } else{
+        elements.warn.style.color = 'red'
+        elements.warn.innerText = 'check the text box !'
+    }
+}
 function x_o(bool) {
     switch (bool) {
         case true:

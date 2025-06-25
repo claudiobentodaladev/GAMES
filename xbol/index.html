@@ -49,13 +49,14 @@
             </div>
             <div>
                 <label for="iplayer_o" id="o_name">o</label>
-                <input type="text" name="player_o" id="iplayer_o">
+                <input type="text" name="player_o" id="iplayer_o" maxlength="13" required>
             </div>
             <div>
                 <label for="iplayer_x" id="x_name">x</label>
-                <input type="text" name="player_x" id="iplayer_x">
+                <input type="text" name="player_x" id="iplayer_x" maxlength="13" required>
             </div>
-            <input type="button" value="play" translate="no">
+            <p id="warn"></p>
+            <input type="button" value="play" translate="no" id="iplay" onclick="name_player_form()">
         </div>
     </section>
     <script src="scripts/script.js"></script>

@@ -89,7 +89,7 @@ section#pop-up > div > div > input#iplayer_x:focus-within{
     border: 1px solid blue;
     outline: 1px solid blue;
 }
-section#pop-up > div > input{
+section#pop-up > div > input#iplay{
     display: block;
     width: 100px;
     height: 30px;
@@ -100,8 +100,17 @@ section#pop-up > div > input{
     cursor: pointer;
     transition: .3s;
 }
-section#pop-up > div > input:hover{
+section#pop-up > div > input#iplay:hover{
     scale: 95%;
+}
+section#pop-up p#warn{
+    text-shadow: 0px 1px 2px #00000091;
+    color: transparent;
+    font-size: 13px;
+    margin-bottom: 5px; 
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 header{
