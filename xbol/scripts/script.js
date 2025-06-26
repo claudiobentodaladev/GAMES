@@ -89,7 +89,7 @@ function again(nowinner,winner) {
         box[index].style.cursor = ''
         elements.resulted_show.style.color = 'white'
         if (nowinner) {
-            elements.resulted_show.innerText = 'no winner?!'
+            elements.resulted_show.innerText = 'no winner?'
         } else {
             winner ? elements.resulted_show.innerText = 'o won!': elements.resulted_show.innerText = 'x won!'
             winner ? elements.resulted_show.style.color = 'red': elements.resulted_show.style.color = 'blue'
@@ -152,7 +152,7 @@ function win_x() {
 }
 function no_winner() {
     let check = 0
-    for (let index in box_ckecker) {
+    for (let index = 0; index < box_ckecker.length; index++) {
         box_ckecker[index] == !undefined ? check += 1 : undefined
     }
     if (check == 5) {
@@ -168,6 +168,14 @@ function no_winner() {
     } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == false && box_ckecker[5] == true && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
         again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == true && box_ckecker[4] == false && box_ckecker[5] == false && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
+        again(true) 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == true && box_ckecker[4] == false && box_ckecker[5] == false && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
+        again(true) 
+    } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == true && box_ckecker[5] == true && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == false){
+        again(true) 
+    } else if(box_ckecker[0] == true && box_ckecker[1] == false && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == true && box_ckecker[5] == true && box_ckecker[6] == true && box_ckecker[7] == true && box_ckecker[8] == false){
+        again(true) 
+    } else if(box_ckecker[0] == true && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == false && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == true && box_ckecker[8] == false){
         again(true) 
     }
 }
