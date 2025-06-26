@@ -80,19 +80,20 @@ function player_control(bool) {
 }
 let checker = []
 function again(nowinner,winner) {
-    for (let index = 0; index < box.length; index++) {
+    for (let index in box) {
         setTimeout(() => {
             player_control(state)
         }, 840);
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
         box[index].style.cursor = ''
+        elements.resulted_show.style.color = 'white'
         if (nowinner) {
             elements.resulted_show.innerText = 'no winner?!'
         } else {
-            winner ? elements.resulted_show.innerText = 'o won!!': elements.resulted_show.innerText = 'x won!'
+            winner ? elements.resulted_show.innerText = 'o won!': elements.resulted_show.innerText = 'x won!'
+            winner ? elements.resulted_show.style.color = 'red': elements.resulted_show.style.color = 'blue'
         }
-        elements.resulted_show.style.color = 'white'
         elements.resulted_show.style.textDecoration = 'none'
         checker[index] = undefined
     }
@@ -151,7 +152,7 @@ function win_x() {
 }
 function no_winner() {
     let check = 0
-    for (let index = 0; index < box_ckecker.length; index++) {
+    for (let index in box_ckecker) {
         box_ckecker[index] == !undefined ? check += 1 : undefined
     }
     if (check == 5) {
@@ -189,46 +190,16 @@ setTimeout(() => {
 }, 880);
 
 function box_alert(boxnumber) {
-    for (let index = 0; index < checker.length; index++) {
+    for (let index in checker) {
         boxnumber == checker[index] ? state = !state : undefined
     }
-    switch(boxnumber){
-        case 1 : 
-            checker[0] = boxnumber
-            x_o_logic(0,state)
-            break
-        case 2 : 
-            checker[1] = boxnumber
-            x_o_logic(1,state)
-            break
-        case 3 :
-            checker[2] = boxnumber
-            x_o_logic(2,state) 
-            break
-        case 4 :
-            checker[3] = boxnumber
-            x_o_logic(3,state) 
-            break
-        case 5 :
-            checker[4] = boxnumber
-            x_o_logic(4,state) 
-            break
-        case 6 :
-            checker[5] = boxnumber
-            x_o_logic(5,state) 
-            break
-        case 7 :
-            checker[6] = boxnumber
-            x_o_logic(6,state) 
-            break
-        case 8 :
-            checker[7] = boxnumber
-            x_o_logic(7,state) 
-            break
-        case 9 :
-            checker[8] = boxnumber
-            x_o_logic(8,state) 
-            break
+    for (let index = 0; index < 10; index++) {
+        if (index == boxnumber) {
+            index--
+            checker[index] = boxnumber
+            x_o_logic(index,state)
+            index++
+        }
     }
     state = !state
     player_control(state)
