@@ -79,7 +79,7 @@ function player_control(bool) {
     }
 }
 let checker = []
-function again() {
+function again(nowinner,winner) {
     for (let index = 0; index < box.length; index++) {
         setTimeout(() => {
             player_control(state)
@@ -87,7 +87,11 @@ function again() {
         box_ckecker[index] = undefined
         box[index].innerHTML = ''
         box[index].style.cursor = ''
-        elements.resulted_show.innerText = 'again!'
+        if (nowinner) {
+            elements.resulted_show.innerText = 'no winner?!'
+        } else {
+            winner ? elements.resulted_show.innerText = 'o won!!': elements.resulted_show.innerText = 'x won!'
+        }
         elements.resulted_show.style.color = 'white'
         elements.resulted_show.style.textDecoration = 'none'
         checker[index] = undefined
@@ -96,15 +100,17 @@ function again() {
 var status_game_o = 0, status_game_x = 0
 elements.resulted_o.innerText = String(status_game_x)
 elements.resulted_x.innerText = String(status_game_o)
-function winner(bool,player) {
+function winner(bool) {
     
     function who() {
         switch (bool) {
             case true:
                 status_game_o += 1
+                again(undefined,true)
                 break;
             case false:
                 status_game_x += 1
+                again(undefined,false)
                 break;
         }      
     }
@@ -138,10 +144,10 @@ function status_game() {
     elements.resulted_x.innerText = status_game_x
 }
 function win_o() {
-    winner(true,'o')
+    winner(true)
 }
 function win_x() {
-    winner(false,'x')
+    winner(false)
 }
 function no_winner() {
     let check = 0
@@ -149,17 +155,17 @@ function no_winner() {
         box_ckecker[index] == !undefined ? check += 1 : undefined
     }
     if (check == 5) {
-        again() 
+        again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
-        again() 
+        again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
-        again() 
+        again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == false && box_ckecker[2] == true && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == true && box_ckecker[8] == false){
-        again() 
+        again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == true && box_ckecker[4] == true && box_ckecker[5] == false && box_ckecker[6] == false && box_ckecker[7] == false && box_ckecker[8] == true){
-        again() 
+        again(true) 
     } else if(box_ckecker[0] == false && box_ckecker[1] == true && box_ckecker[2] == false && box_ckecker[3] == false && box_ckecker[4] == false && box_ckecker[5] == true && box_ckecker[6] == true && box_ckecker[7] == false && box_ckecker[8] == true){
-        again() 
+        again(true) 
     }
 }
 function status_player(bool) {
