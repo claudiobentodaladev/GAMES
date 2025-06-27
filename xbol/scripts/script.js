@@ -68,7 +68,7 @@ function resulted_show(player,color) {
     elements.resulted_show.style.color = color
 }
 function player_control(bool) {
-    let triple = `${x_o(bool)}${x_o(bool)}${x_o(bool)}`
+    let triple = x_o(bool).repeat(3)
     switch (bool) {
         case true:
             resulted_show(triple,color_x_o(bool))
