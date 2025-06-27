@@ -179,19 +179,6 @@ function no_winner() {
         again(true) 
     }
 }
-function status_player(bool) {
-    let status_o = 0
-    let status_x = 0
-    switch (bool) {
-        case 'o':
-            status_o += 1
-            elements.resulted_o.innerText = status_o
-        case 'x':
-            status_x += 1
-            elements.resulted_x.innerText = status_x
-            break;
-    }
-}
 
 var state = true // O(true) | X(false)
 
