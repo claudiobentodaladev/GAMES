@@ -5,7 +5,8 @@ const elements = {
     resulted_o: window.document.querySelector('span#o_win'),
     resulted_x: window.document.querySelector('span#x_win'),
     pop_up: window.document.querySelector('section#pop-up'),
-    warn: window.document.querySelector('p#warn')
+    warn: window.document.querySelector('p#warn'),
+    box: window.document.querySelector('section#box')
 }
 const form = {
     name_player_o: window.document.querySelector('input#iplayer_o'),
@@ -66,6 +67,7 @@ function resulted_show(player,color) {
     elements.resulted_show.style.textDecoration = 'line-through'
     elements.resulted_show.innerText = player
     elements.resulted_show.style.color = color
+    elements.box.style.boxShadow = `0px 0px ${color == 'blue' ? '12px' : '45px'} 0px ${color}`
 }
 function player_control(bool) {
     let triple = x_o(bool).repeat(3)

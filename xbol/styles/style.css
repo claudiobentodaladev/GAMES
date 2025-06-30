@@ -179,7 +179,7 @@ main > section{
     background-color: red;
     background-color: #80808070;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px 0px darkblue;
+    box-shadow: 0px 0px 20px 0px white;
 }
 main > section > section > div{
     height: 100px;
