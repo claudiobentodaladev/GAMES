@@ -14,24 +14,86 @@ body{
 }
 
 section#pop-up{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 20%;
-    height: 100%;
-    background-color: #00000098;
+    &{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 20%;
+        height: 100%;
+        background-color: #00000098;
+    }
+    & h2{
+        display: inline;
+        margin: auto;
+        color: white;
+        text-transform: capitalize;
+    }
+    & > div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-43%);
+        width: 360px;
+        height: 300px;
+        padding: 10px;
+        border-radius: 5px;
+        background-image: linear-gradient(to right, red,#0000c4);
+    }
+    & > div > div{
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    & > div > div > label{
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        text-shadow: 0px 1px 5px black;
+    }
+    & > div > div > label#o_name{
+        color: red;
+    }
+    & > div > div > label#x_name{
+        color: blue;
+    }
+    & > div > div > input{
+        padding: 5px;
+        font-size: 16px;
+    }
+    & > div > div > input#iplayer_o:focus-within{
+        border: 1px solid red;
+        outline: 1px solid red;
+    }
+    & > div > div > input#iplayer_x:focus-within{
+        border: 1px solid blue;
+        outline: 1px solid blue;
+    }
+    & > div > input#iplay{
+        display: block;
+        width: 100px;
+        height: 30px;
+        margin-top: 500px;
+        margin: auto;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .3s;
+    }
+    & > div > input#iplay:hover{
+        scale: 95%;
+    }
+    & p#warn{
+        text-shadow: 0px 1px 2px #00000091;
+        color: transparent;
+        font-size: 13px;
+        margin-bottom: 5px; 
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+    }
 }
+/*NESTING CSS DOES NOT WORK WITH @KEYFRAMES*/
 section#pop-up > div{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-43%);
-    width: 360px;
-    height: 300px;
-    padding: 10px;
-    border-radius: 5px;
-    background-image: linear-gradient(to right, red,#0000c4);
     animation: show 1s linear;
 }
 @keyframes show {
@@ -42,12 +104,6 @@ section#pop-up > div{
     } 100%{
         scale: 100%;
     }
-}
-section#pop-up h2{
-    display: inline;
-    margin: auto;
-    color: white;
-    text-transform: capitalize;
 }
 section#pop-up h2#cursor{
     animation: cursor infinite 990ms;
@@ -61,100 +117,54 @@ section#pop-up h2#cursor{
         color: transparent;
     }
 }
-section#pop-up > div > div{
-    margin-bottom: 10px;
-    text-align: center;
-}
-section#pop-up > div > div > label{
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    text-shadow: 0px 1px 5px black;
-}
-section#pop-up > div > div > label#o_name{
-    color: red;
-}
-section#pop-up > div > div > label#x_name{
-    color: blue;
-}
-section#pop-up > div > div > input{
-    padding: 5px;
-    font-size: 16px;
-}
-section#pop-up > div > div > input#iplayer_o:focus-within{
-    border: 1px solid red;
-    outline: 1px solid red;
-}
-section#pop-up > div > div > input#iplayer_x:focus-within{
-    border: 1px solid blue;
-    outline: 1px solid blue;
-}
-section#pop-up > div > input#iplay{
-    display: block;
-    width: 100px;
-    height: 30px;
-    margin-top: 500px;
-    margin: auto;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-section#pop-up > div > input#iplay:hover{
-    scale: 95%;
-}
-section#pop-up p#warn{
-    text-shadow: 0px 1px 2px #00000091;
-    color: transparent;
-    font-size: 13px;
-    margin-bottom: 5px; 
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
 
 header{
-    height: 20%;
+    &{
+        height: 20%;
+    }
+    & > section{
+        display: flex;
+        flex-basis: 300px;
+        justify-content: center;
+        text-align: center;
+        text-align: center;
+        margin: auto;
+    }
+    & > section > span{
+        margin: 0 10px;
+        color: white;
+    }
+    & > section > span#vs{
+        font-weight: bolder;
+        font-size: 10px;
+        transform: translate(0,25%);
+    }
+    & > section > span#oplayer{
+        color: red;
+    }
+    & > section > span#xplayer{
+        color: blue;
+    }
+    & > section > span > div{
+        text-transform: uppercase;
+        font-size: 4em;
+    }
+    & > section > span > span.name_player{
+        width: 100px;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    & > div#winner{
+        font-size: 50px;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        scale: 80%;
+    }
 }
-header > section{
-    display: flex;
-    flex-basis: 300px;
-    justify-content: center;
-    text-align: center;
-    text-align: center;
-    margin: auto;
-}
-header > section > span{
-    margin: 0 10px;
-    color: white;
-}
-header > section > span#vs{
-    font-weight: bolder;
-    font-size: 10px;
-    transform: translate(0,25%);
-}
-header > section > span#oplayer{
-    color: red;
-}
-header > section > span#xplayer{
-    color: blue;
-}
-header > section > span > div{
-    text-transform: uppercase;
-    font-size: 4em;
-}
-header > section > span > span.name_player{
-    width: 100px;
-    font-size: 16px;
-    text-transform: uppercase;
-}
+/*NESTING CSS DOES NOT WORK WITH @KEYFRAMES*/
 header > div#winner{
-    font-size: 50px;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
     animation: linear bam .8s;
-    scale: 80%;
 }
 @keyframes bam {
     0%{
@@ -167,38 +177,40 @@ header > div#winner{
 }
 
 main{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-}
-main > section{
-    display: flex;
-    max-width: 300px;
-    background-color: red;
-    background-color: #80808070;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 0px white;
-}
-main > section > section > div{
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
-    font-size: 5em;
-    text-align: center;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-main > section > section > div#b1{
-    border-radius: 10px 0 0 0;
-}
-main > section > section > div#b3{
-    border-radius: 0 10px 0 0 ;
-}
-main > section > section > div#b7{
-    border-radius: 0 0 0 10px ;
-}
-main > section > section > div#b9{
-    border-radius: 0 0 10px 0 ;
+    &{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        height: 60%;
+    }
+    & > section{
+        display: flex;
+        max-width: 300px;
+        background-color: red;
+        background-color: #80808070;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px white;
+    }
+    & > section > section > div{
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        font-size: 5em;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    & > section > section > div#b1{
+        border-radius: 10px 0 0 0;
+    }
+    & > section > section > div#b3{
+        border-radius: 0 10px 0 0 ;
+    }
+    & > section > section > div#b7{
+        border-radius: 0 0 0 10px ;
+    }
+    & > section > section > div#b9{
+        border-radius: 0 0 10px 0 ;
+    }
 }
